@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { FirstComponent } from './first.component';
-import { ChildAComponent } from '../child-a/child-a.component';
-import { ChildBComponent } from '../child-b/child-b.component';
+
+import { ChildAModule } from '../child-a/child-a.module';
+import { ChildBModule } from './../child-b/child-b.module';
 
 @NgModule({
   declarations: [
@@ -12,20 +13,14 @@ import { ChildBComponent } from '../child-b/child-b.component';
   ],
   imports: [
     CommonModule,
+    ChildAModule,
+    ChildBModule,
     RouterModule.forChild([
       {
         path: '',
         component: FirstComponent
-      },
-      {
-        path: 'child-a',
-        component: ChildAComponent
-      },
-      {
-        path: 'child-b',
-        component: ChildBComponent
-      },]
-    )
+      }
+    ])
   ],
   exports: [
     FirstComponent
